@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  [data-theme="green"] {
+    --color-primary: #10b981;
+    --color-primary-rgb: 16, 185, 129;
+    --color-primary-light: #34d399;
+    --color-primary-muted: rgba(16, 185, 129, 0.12);
+    --color-primary-glow: rgba(16, 185, 129, 0.3);
+    --color-background: #080d0a;
+    --color-surface: #0e1712;
+    --color-surface-hover: #15241c;
+    --color-surface-border: #1a3024;
+    --color-text: #e6f6ed;
+    --color-text-muted: #83a893;
+    --color-text-subtle: #4d6e5c;
+    --color-border: #182d22;
+    --color-border-bright: #274d39;
+    --terminal-title-bg: #0b130e;
+    --color-cursor: #10b981;
+  }
+
+  [data-theme="purple"] {
+    --color-primary: #a855f7;
+    --color-primary-rgb: 168, 85, 247;
+    --color-primary-light: #c084fc;
+    --color-primary-muted: rgba(168, 85, 247, 0.12);
+    --color-primary-glow: rgba(168, 85, 247, 0.3);
+    --color-background: #0d0814;
+    --color-surface: #140d21;
+    --color-surface-hover: #1f1433;
+    --color-surface-border: #2e1d4a;
+    --color-text: #f5edfc;
+    --color-text-muted: #a78ebf;
+    --color-text-subtle: #6c5782;
+    --color-border: #28183d;
+    --color-border-bright: #4b2a75;
+    --terminal-title-bg: #100a1c;
+    --color-cursor: #a855f7;
+  }
+
+  [data-theme="blue"] {
+    --color-primary: #38bdf8;
+    --color-primary-rgb: 56, 189, 248;
+    --color-primary-light: #7dd3fc;
+    --color-primary-muted: rgba(56, 189, 248, 0.12);
+    --color-primary-glow: rgba(56, 189, 248, 0.3);
+    --color-background: #070d14;
+    --color-surface: #0c1724;
+    --color-surface-hover: #132438;
+    --color-surface-border: #1b3552;
+    --color-text: #e6f3fd;
+    --color-text-muted: #7ca5c4;
+    --color-text-subtle: #486a87;
+    --color-border: #152a42;
+    --color-border-bright: #224d7d;
+    --terminal-title-bg: #0a121e;
+    --color-cursor: #38bdf8;
+  }
+
+  [data-theme="red"] {
+    --color-primary: #f43f5e;
+    --color-primary-rgb: 244, 63, 94;
+    --color-primary-light: #fb7185;
+    --color-primary-muted: rgba(244, 63, 94, 0.12);
+    --color-primary-glow: rgba(244, 63, 94, 0.3);
+    --color-background: #110709;
+    --color-surface: #1b0c10;
+    --color-surface-hover: #291219;
+    --color-surface-border: #3d1a24;
+    --color-text: #ffe7eb;
+    --color-text-muted: #bf818c;
+    --color-text-subtle: #7a4650;
+    --color-border: #36151f;
+    --color-border-bright: #612232;
+    --terminal-title-bg: #16090d;
+    --color-cursor: #f43f5e;
+  }
+
+  [data-theme="yellow"] {
+    --color-primary: #eab308;
+    --color-primary-rgb: 234, 179, 8;
+    --color-primary-light: #fde047;
+    --color-primary-muted: rgba(234, 179, 8, 0.12);
+    --color-primary-glow: rgba(234, 179, 8, 0.3);
+    --color-background: #0d0c07;
+    --color-surface: #16140b;
+    --color-surface-hover: #221f11;
+    --color-surface-border: #353018;
+    --color-text: #fefce8;
+    --color-text-muted: #b8af7a;
+    --color-text-subtle: #787042;
+    --color-border: #2c2813;
+    --color-border-bright: #524a21;
+    --terminal-title-bg: #131109;
+    --color-cursor: #eab308;
+  }
+}
+
+@theme {
+  --color-term-primary: var(--color-primary);
+  --color-term-primary-light: var(--color-primary-light);
+  --color-term-muted: var(--color-primary-muted);
+  --color-term-glow: var(--color-primary-glow);
+  --color-term-bg: var(--color-background);
+  --color-term-surface: var(--color-surface);
+  --color-term-surface-hover: var(--color-surface-hover);
+  --color-term-surface-border: var(--color-surface-border);
+  --color-term-text: var(--color-text);
+  --color-term-text-muted: var(--color-text-muted);
+  --color-term-text-subtle: var(--color-text-subtle);
+  --color-term-border: var(--color-border);
+  --color-term-border-bright: var(--color-border-bright);
+}
+
+html {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom terminal scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-bright);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* Terminal Cursor Blink */
+@keyframes terminalBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+.animate-cursor {
+  animation: terminalBlink 1s infinite;
+}
+
+/* Terminal Scanline Background Texture (subtle) */
+.terminal-grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(var(--color-primary-rgb), 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--color-primary-rgb), 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.terminal-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.25) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

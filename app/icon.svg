@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0e1712" />
+      <stop offset="100%" stop-color="#080d0a" />
+    </linearGradient>
+    <linearGradient id="neonGreen" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#10b981" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- Terminal Window Background -->
+  <rect width="256" height="256" rx="56" fill="url(#bgGrad)" stroke="#1a3024" stroke-width="6" />
+
+  <!-- Window Header Bar / Accent Line -->
+  <line x1="28" y1="68" x2="228" y2="68" stroke="#182d22" stroke-width="2" />
+
+  <!-- Terminal Window Controls (Red, Yellow, Green) -->
+  <circle cx="52" cy="46" r="7" fill="#ff5f56" />
+  <circle cx="74" cy="46" r="7" fill="#ffbd2e" />
+  <circle cx="96" cy="46" r="7" fill="#27c93f" />
+
+  <!-- Terminal Prompt Chevron (>) -->
+  <path
+    d="M 58 106 L 118 152 L 58 198"
+    fill="none"
+    stroke="url(#neonGreen)"
+    stroke-width="24"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    filter="url(#glow)"
+  />
+
+  <!-- Terminal Cursor Underscore (_) -->
+  <rect
+    x="138"
+    y="184"
+    width="62"
+    height="18"
+    rx="5"
+    fill="url(#neonGreen)"
+    filter="url(#glow)"
+  />
+</svg>
